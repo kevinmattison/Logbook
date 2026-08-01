@@ -1,0 +1,379 @@
+36	2021/03/06	00:46	250	17	Ion 3	PG Solo		N/A
+37	2021/03/28	00:45	731	0	Ion 3	PG Solo	Picketberg	N/A
+38	2021/03/28	00:25	0	0	Ion 3	PG Solo	Picketberg	N/A
+39	2021/03/30	00:05	220	0	Ion 3	PG Solo	Llandudno	N/A
+40	2021/04/04	00:12	600	5	Ion 3	PG Solo	Kardoesie	N/A
+41	2021/04/10	00:10	400	2.5	Ion 3	PG Solo	Lions head	Front launch
+42	2021/04/17	00:10	300	0	Ion 3	PG Solo	Sir lowrys pass	N/A
+43	2021/05/02	00:05	240	2	Ion 3	PG Solo	Hermanus	N/A
+44	2021/05/02	00:05	240	2	Ion 3	PG Solo	Hermanus	N/A
+45	2021/05/02	00:05	240	2	Ion 3	PG Solo	Hermanus	N/A
+46	2021/05/08	00:25	0	0	Ion 3	PG Solo	Sir lowrys pass	N/A
+47	2021/05/08	01:00	990	27	Ion 3	PG Solo	Sir lowrys pass	N/A
+48	2021/05/16	00:25	500	0	Ion 3	PG Solo	Lions head	N/A
+49	2021/05/29	00:45	800	0	Ion 3	PG Solo	Lions head	N/A
+50	2021/05/30	00:05	300	0	Ion 3	PG Solo	Llandudno	N/A
+51	2021/06/13	00:10	0	0	Ion 3	PG Solo	Llandudno	N/A
+52	2021/07/10	00:10	1109	20	Ion 3	PG Solo	Du toits	N/A
+53	2021/07/10	00:15	800	0	Ion 3	PG Solo	Du toits	N/A
+54	2021/07/13	00:35	850	0	Ion 3	PG Solo	Lions head	Precision landing , speed bar
+55	2021/07/30	00:10	0	0	Ion 3	PG Solo	Lions head	N/A
+56	2021/08/01	00:15	600	0	Ion 3	PG Solo	Du toits	N/A
+57	2021/08/01	00:08	400	0	Ion 3	PG Solo	Du toits	N/A
+58	2021/08/17	00:19	400	0	Ion 3	PG Solo	Llandudno	N/A
+59	2021/08/21	00:30	1300	0	Ion 3	PG Solo	Limietberg	Hike and fly
+60	2021/08/22	00:25	800	0	Ion 3	PG Solo	Du toits	N/A
+61	2021/08/22	00:05	700	0	Ion 3	PG Solo	Du toits	N/A
+62	2021/08/29	00:08	300	0	Ion 3	PG Solo	Llandudno	N/A
+63	2021/09/12	00:14	600	0	Ion 3	PG Solo	Lions head	N/A
+64	2021/09/12	00:31	700	0	Ion 3	PG Solo	Lions head	Precision landing, spiral
+65	2021/10/09	00:05	700		Ion 3	PG Solo	Du toits	
+66	2021/10/17	00:36	750		Ion 3	PG solo	Lions head	Precision landing
+67	2021/10/23	00:20	700		Ion 3	Pg	Lions head	Precision landing
+68	2021/10/23	00:12	700		Ion 3	Pg	Lions head	Precision landing
+69	2021/10/24	00:24	940	23	Ion 3	Pg	Koringberg	Cross country
+70	2021/10/28	00:05	300		Ion 3	Pg	Llandudno	
+71	2021/11/02	00:18	340	8	Ion 3	Pg	Llandudno	
+72	2021/11/03	00:57	1400	28	Ion 3	Pg	Du Toits	Cross country
+73	2021/11/09	00:28	750	23	Ion 3	Pg	Lions Head	
+74	2021/12/12	00:20	250		Ion 3	Pg	Llandudno	
+75	2021/12/19	00:05	400		Ion 3	Pg	Lions head	Front launch
+76	2022/01/30	00:12	700	5	Ion 3	Pg	Dasklip	Reverse launch
+77	2022/01/30	00:30	840	20	Ion 3	Pg	Dasklip	Reverse launch
+78	2022/02/03	00:43	676	12	Ion 3	Pg	Lions head	Reverse launch. Precision landing
+79	2022/02/20	00:25	600		Ion 3	Pg	Lions head	Forward launch
+80	2022/02/28	00:05	290		Ion 3	Pg	Llandudno Upper launch	Precision landing
+81	2022/03/05	00:05	680		Ion 3	Pg	Piketberg	
+82	2022/03/05	00:30	987		Ion 3	Pg	Piketberg	
+83	2022/03/05	00:30	800		Ion 3	Pg	Piketberg	
+84	2022/04/24	00:10	400		Ion 3	Pg	Lions head	Precision landing
+85	2022/04/27	00:07	250		Ion 3	Pg	Sir lowrys pass	
+86	2022/05/08	00:08	750		Ion 3	Pg	Franschhoek	
+87	2022/05/08	01:10	1074		Ion 3	Pg	Franschhoek	
+88	2022/05/21	00:08	450		Ion 3	Pg	Lions head	Forward launch
+89	2022/06/22	00:05	450		Ion 3	Pg	Lions head	Forward launch
+90	2022/07/12	00:40	450		Ion 3	Pg	Llandudno	
+91	2022/07/21	00:40	600		Arak	Pg	Franschhoek	
+92	2022/07/30	00:35	400		Arak	Pg	St James	
+93	2022/08/05	00:30	400		Arak	Pg	Llandudno	
+94	2022/08/05	00:25	600		Arak	Pg	Llandudno	
+95	2022/08/08	00:06	400		Arak	Pg	Llandudno	
+96	2022/08/21	01:00	2056	25	Arak	Pg	Capeno Varonese	Cross country 8km as the crow flies
+97	2022/08/29	00:40	1860		Arak	Pg	Monte Baldo	Spirals
+98	2022/08/30	00:33	1780		Arak	Pg	Monte Baldo	Spirals
+99	2022/09/01	00:25	1740		Arak	Pg	Monte Baldo	Spirals
+100	2022/10/08	00:10	750		Arak	Pg	Du toits	
+101	2022/10/16	00:19	400		Arak	Pg	Lions head	Front launch. Precision landing
+102	2022/10/23	00:51	1335		Arak	Pg	Porterville	Cross Country 12km
+103	2022/11/08	00:36	680		Arak	Pg	Lions head	
+104	2022/11/20	00:05	619		Arak	Pg	Kardoesie	
+105	2022/11/26	00:09	619		Arak	Pg	Kardoesie	
+106	2022/11/26	00:22	680		Arak	Pg	Kardoesie	
+107	2022/12/21	00:10	20		Arak	Pg	Cape st Francis	Dune soaring
+108	2022/12/28	00:50	311		Arak	Pg	Sedgefield	
+109	2023/01/08	00:05	450		Arak	Pg	Lions head upper	Forward launch. Sign with Louis Sanford.
+110	2023/01/13	00:11	400		Arak	Pg	Lions head	
+111	2023/01/13	00:09	400		Arak	Pg	Lions head	
+112	2023/01/19	00:20	410		Arak	Pg	Lions head	Big ears
+113	2023/01/20	00:32	720		Arak	Pg	Lions head	
+114	2023/02/04	01:02	1195		Arak	Pg	Dasklip	18km cross country
+115	2023/02/11	00:10	400		Arak	Pg	Lions head	
+116	2023/02/19	00:58	600		Arak	Pg	Sir lowrys pass	Spirals
+117	2023/02/21	00:40	700		Arak	Pg	Lions head	
+118	2023/03/04	00:36	1019		Arak	Pg	Constantiaberg	Spirals, big ears
+119	2023/03/18	00:25	463		Arak	Pg	Llandudno	Landed sandy bay
+120	2023/03/21	00:05	250		Arak	Pg	Llandudno	
+121	2023/04/14	00:30	710		Arak	Pg	Lions head	
+122	2023/04/19	00:06	250		Arak	Pg	Llandudno	Front launch
+123	2023/05/25	00:06	400		Arak	Pg	Lions head	Front launch
+124	2023/04/29	00:09	1268		Arak	Pg	Coetze Peak, cederberg	Hike and fly
+125	2023/04/30	00:05	1103		Arak	Pg	Berg en Dahl cederberg	Hike and fly
+126	2023/05/01	00:43	1252		Arak	Pg	Elandsfontein	Pod, top landing, big ears
+127	2023/05/23	00:17	335		Arak	Pg	Llandudno	
+128	2023/05/28	00:27	758		Arak	Pg	Noordhoek Peak	5.6km xc
+129	2023/06/10	00:41	403		Arak	Pg	Llandudno	
+130	2023/07/03	00:15	780		Arak	Pg	Vidova Gora, Croatia	
+131	2023/07/09	00:10	1029		Arak	Pg	Svilaja, Croatia	
+132	2023/07/31	00:17	582		Arak	Pg	Lions head	
+133	2023/08/04	00:05	250		Arak	Ph	Llandudno	
+134	2023/08/12	00:22	679		Arak	Pg	Lions head	
+135	2023/08/13	01:02	908		Arak	Pg	Sir lowrys pass	Big ears, spirals
+136	2023/08/14	00:21	470		Arak	Pg	Lions head	
+137	2023/08/24	00:54	897		Arak	Pg	Lionshead. Cross to apostles	8km cross country.
+138	2023/08/27	01:12	1093		Arak	Pg	Noordhoek peak	18 cross country
+139	2023/08/28	00:25	896		Arak	Pg	Constantiaberg	Hike and fly
+140	2023/09/01	00:35	880		Arak	Pg	Lions head	Crossed to apostles
+141	2023/09/03	00:39	397		Arak	Pg	Llandudno	
+142	2023/09/07	00:40	427		Arak	Pg	Llandudno	Crossed to karbonkelberg
+143	2023/09/17	00:25	620		Arak	Pg	Lions head	
+144	2023/09/22	01:09	1060	11	Arak	Pg	Kardoesie	
+145	2023/09/22	00:07	634	3	Arak	Pg	Kardoesie	
+146	2023/09/22	00:44	820	8	Arak	Pg	Kardoesie	
+147	2023/10/06	00:25	1700		Arak	Pg	Oludeniz	
+148	2023/10/06	00:25	1700		Arak	Pg	Oludeniz	
+149	2023/10/07	00:25	1700		Arak	Pg	Oludeniz	Spirals
+150	2023/10/07	00:25	1700		Arak	Pg	Oludeniz	Wingovers
+151	2023/10/07	00:25	1700		Arak	Pg	Oludeniz	Wingovers
+152	2023/10/07	00:29	1700		Arak	Pg	Oludeniz	Wingovers
+153	2023/10/08	00:25	1900		Arak	Pg	Oludeniz	Wingovers, pendulums
+154	2023/10/08	00:25	1700		Arak	Pg	Oludeniz	Frontal collapse, asymmetricals, wingovers
+155	2023/10/08	00:25	1700		Arak	Pg	Oludeniz	Wingovers, spirals
+156	2023/10/09	00:25	1900		Arak	Pg	Oludeniz	Wingovers, autorotation, asymmetricals
+157	2023/10/09	00:25	1800		Arak	Pg	Oludeniz	Wingovers, autorotation
+158	2023/10/09	00:25	1700		Arak	Pg	Oludeniz	
+159	2023/10/11	00:25	1900		Arak	Pg	Oludeniz	Wingovers, auto rotation, spirals, rapid exit
+160	2023/10/11	00:25	1900		Arak	Pg	Oludeniz	Wingovers stalls spirals
+161	2023/10/11	00:25	1200		Arak	Pg	Oludeniz	Wingovers, full stalls, spirals
+162	2023/10/12	00:25	1900		Arak	Pg	Oludeniz	Wingovers, full stall
+163	2023/10/12	00:25	1900		Arak	Pg	Oludeniz	Wingovers, full stall speedbar frontal. Speedbar asymmetrical
+164	2023/10/26	00:27	500		Arak	Pg	Lions head	Wingovers
+165	2023/11/19	00:05	100		Nova ion	Pg	Witsands sand dunes	
+166	2023/11/23	00:28	440		Arak	Pg	Lions head	Wing overs
+167	2023/11/26	02:35	1500		Arak	Pg	Du Toits to Gouda	50km xc
+168	2023/11/30	00:06	430		Arak	Pg	Lions head	
+169	2023/12/01	00:10	250		Arak	Pg	Llandudno	
+170	2023/12/16	00:06	400		Arak	Pg	Lions head	
+171	2023/12/29	00:05	300		Arak	Pg	Sedgefield	
+172	2023/12/29	00:05	30		Arak	Pg	Views hotel	
+173	2023/12/29	00:05	30		Arak	Pg	Views hotel	
+174	2023/12/29	00:05	30		Arak	Pg	Views hotel	
+175	2023/12/29	00:05	30		Arak	Pg	Views hotel	
+176	2023/12/30	00:10	60		Arak	Pg	Views hotel	
+177	2023/12/31	00:10	140		Arak	Pg	Sedgefield	Top landing
+178	2023/12/31	00:10	140		Arak	Pg	Sedgefield	Top landing
+179	2023/12/31	00:10	140		Arak	Pg	Sedgefield	Top landing
+180	2023/12/31	00:05	120		Moustache	Pg	Sedgefield	
+181	2024/01/01	00:05	30		Arak	Pg	Views hotel	
+182	2024/01/01	00:05	30		Arak	Pg	Views hotel	
+183	2024/01/02	00:05	160		Arak	Pg	Sedgefield	Top landing
+184	2024/01/02	00:21	160		Arak	Pg	Sedgefield	Top landing
+185	2024/01/02	00:08	160		Arak	Pg	Sedgefield	
+186	2024/01/04	02:06	1252		Arak	Pg	Pampoen to renostwrhoek	Xc - 46km
+187	2024/01/06	00:11	257		Arak	Pg	Llandudno	
+188	2024/01/06	00:16	316		Arak	Pg	Llandudno	Wingover
+189	2024/01/11	00:18	390		Arak	Pg	Lions head	
+190	2024/01/15	00:05			Moustache	Pg	Malmesburg	
+191	2024/01/15	00:05			Moustache	Pg	Malmesburg	
+192	2024/01/15	00:05			Moustache	Pg	Malmesburg	
+193	2024/01/15	00:25			Moustache	Pg	Malmesburg	
+194	2024/01/15	00:15			Moustache	Pg	Malmesburg	
+195	2024/01/15	00:20			Moustache	Pg	Malmesburg	
+196	2024/01/15	00:10			Moustache	Pg	Malmesburg	
+197	2024/01/15	00:10			Moustache	Pg	Malmesburg	
+198	2024/01/15	00:15			Moustache	Pg	Malmesburg	
+199	2024/01/21	00:34	806		Arak	Pg	Dasklip	7km xc
+200	2024/01/27	00:05	280		Arak	Pg	Llandudno	
+201	2024/01/28	00:05	280		Moustache	Pg	Llandudno	
+202	2024/01/28	00:05	280		Moustache	Pg	Llandudno	
+203	2024/02/03	00:05	2500		Moustache	Pg	Solaises, valdisere	Front launch, skis
+204	2024/02/03	00:05	2500		Moustache	Pg	Solaises, valdisere	Front launch, skis
+205	2024/02/03	00:05	2500		Moustache	Pg	Solaises, valdisere	Front launch, skis
+206	2024/02/05	00:05	2500		Moustache	Pg	Solaises, valdisere	Front launch, skis
+207	2024/03/01	00:05	250		Arak	Pg	Llandudno	
+208	2024/03/07	00:07			Arak	Pg	Lions head	
+209	2024/03/08	00:53	1174		Arak	Pg	Franschhoek	Top landing
+210	2024/03/08	00:31	1012		Arak	Pg	Franschhoek	
+211	2024/04/14	00:05			Ion 3	Pg	Langebaan	Ground handling
+212	2024/04/14	00:05			Ion 3	Pg	Langebaan	Ground handling
+213	2024/04/14	00:05			Ion 3	Pg	Langebaan	Ground handling
+214	2024/04/21	00:05			Moustache	Pg	Llandudno	
+215	2024/04/21	00:05			Arak	Pg	Llandudno	
+216	2024/05/11	00:50	1200		Arak	Pg	Noordhoek peak	
+217	2024/05/18	00:45	1200		Arak	Pg	Franschhoek	Top landing
+218	2024/05/19	00:10	250		Arak	Pg	Llandudno	
+219	2024/05/19	00:10	300		Moustache	Pg	Llandudno	
+220	2024/05/30	00:05	400		Moustache	Pg	Lions head	
+221	2024/06/08	00:05	1890		Arak	Pg	Goudini Sneeuberg	1890 launch
+222	2024/06/08	00:27	1609		Arak	Pg	Goudini sneeuberg	Cliff launch
+223	2024/07/15	00:20	420		Arak	Pg	Llandudno	
+224	2024/07/20	00:13	685		Arak	Pg	Silvermine fence west	
+225	2024/07/20	00:13	338		Arak	Pg	Signal hill	
+226	2024/07/21	00:20	800		Arak	Pg	Noordhoek peak	
+227	2024/08/02	02:02	1100		Arak	Pg	Signal hill	
+228	2024/08/02	00:17	400		Arak	Pg	Signal hill	
+229	2024/08/14	00:30	700		Arak	Pg	Lions head	
+230	2024/08/18	00:37	587		Arak	Pg	Signal hill	
+231	2024/08/30	00:15	1047		Arak	Pg	Table Mountain	
+232	2024/09/10	00:12	2222		Arak	Pg	Col Rodello	
+233	2024/09/15	00:40	370		Arak	Pg	Signal hill	
+234	2024/09/21	00:59	800		Arak	Pg	Constantiaberg	
+235	2024/09/23	00:22	714		Arak	Pg	Dasklip	
+236	2024/09/23	01:46	1300		Arak	Pg	Dasklip	35km xc
+237	2024/09/24	00:05	300		Moustache	Pg	Llandudno	
+238	2024/09/27	00:10	350		Arak	Pg	Signal hill	
+239	2024/10/06	00:10	300		Arak	Pg	Signal hill	
+240	2024/10/09	00:21	450		Arak	Pg	Signal hill	
+241	2024/10/11	00:16	550		Arak	Pg	Noordhoek Peak	Hike from east fort
+242	2024/11/16	01:15	450		Arak	Pg	Hermanus	Top landing
+243	2024/11/17	00:06	400		Arak	Pg	Lions head	
+244	2024/12/03	00:20	470		Arak	Pg	Lions head	
+245	2024/12/05	00:05	250		Moustache	Pg	Llandudno	
+246	2024/12/07	01:23	984		Arak	Pg	Sir lowrys pass	18 xc landed Gordan's bay
+247	2024/12/07	00:21	393		Arak	Pg	Signal hill	
+248	2024/12/16	00:11	401		Arak	Pg	Lions head	
+249	2024/12/17	00:41	721		Arak	Pg	Lions head	
+250	2024/12/22	00:06	300		Arak	Pg	Signal hill	
+251	2024/12/24	00:07	333		Arak	Pg	Signal hill	
+252	2024/12/24	00:10	294		Arak	Pg	Signal hill	
+253	2024/12/28	00:07	400		Arak	Pg	Lions head	
+254	2024/12/29	00:08	254		Arak	Pg	Llandudno	
+255	2024/12/31	00:29	394		Arak	Pg	Signal hill	
+256	2024/12/31	00:21	586		Arak	Pg	Lions head upper	
+257	2025/01/01	00:25	687		Arak	Pg	Lions head	
+258	2025/01/07	00:45	264		Arak	Pg	Kommetjie	
+259	2025/01/08	00:13	408		Arak	Pg	Lions head	
+260	2025/01/08	00:25	611		Arak	Pg	Lions head	
+261	2025/01/09	00:10	300		Arak	Pg	Llandudno	
+262	2025/01/08	01:23	863		Arak	Pg	Signal hill	Kommetjie run xc 32km
+263	2025/01/22	00:09	663		Arak	Pg	Overseers	
+264	2025/01/25	01:10	1382		Arak	Pg	Franschhoek	Top landing
+265	2025/01/31	00:15	370		Arak	Pg	Signal hill	
+266	2025/02/01	00:47	879		Arak	Pg	Noordhoek Peak	
+267	2025/02/02	01:08	1077		Arak	Pg	Lions head	Crossed to TM
+268	2025/02/19	00:31	1139		Arak	Pg	Table mountain	
+269	2025/02/21	00:20	600		Arak	Pg	Lions head	
+270	2025/02/27	00:05	2700		Moustache	Pg	Deux Alpes	
+271	2025/02/27	00:05	2700		Moustache	Pg	Deux Alpes	
+272	2025/03/02	00:05	2200		Moustache	Pg	St Anton	
+273	2025/03/08	00:05	260		Arak	Pg	Llandudno	
+274	2025/03/09	00:05	260		Arak	Pg	Llandudno	
+275	2025/03/16	00:05	260		Arak	Pg	Llandudno	
+276	2025/03/21	00:05	260		Arak	Pg	Llandudno	
+277	2025/03/23	00:25	792		Arak	Pg	Kardoesie	
+278	2025/03/23	00:08	554		Arak	Pg	Kardoesie	
+279	2025/04/02	00:19	2331		Arak	Pg	Soelden	Snow take off
+280	2025/04/04	00:15	2298		Arak	Pg	Soelden	Snow, back wind, front launch
+281	2025/04/10	00:19	1047		Arak	Pg	Table mountain	
+282	2025/04/13	00:11	950		Moustache	Pg	Noordhoek Peak	
+283	2025/04/17	00:30	1200		Arak	Pg	Table mountain	
+284	2025/04/18	01:20	1870		Arak	Pg	Franschhoek	18km XC
+285	2025/04/24	00:24	1127		Arak	Pg	Table mountain	Asym collapse
+286	2025/04/25	00:19	1087		Arak	Pg	Table mountain	
+287	2025/04/26	00:36	1206		Arak	Pg	Table mountain	Flew to Llandudno
+288	2025/04/28	00:05	225		Moustache	Pg	Llandudno	
+289	2025/04/28	00:05	225		Moustache	Pg	Llandudno	
+290	2025/04/28	00:05	225		Moustache	Pg	Llandudno	
+291	2025/04/28	00:05	225		Moustache	Pg	Llandudno	
+292	2025/04/30	00:13	450		Moustache	Pg	Lions head	
+293	2025/05/03	00:15	1410		Arak	Pg	Du Toits Kop	Hike n fly
+294	2025/05/05	00:19	1070		Arak	Pg	Table mountain gulley	
+295	2025/05/31	00:10	300		Moustache	Pg	Llandudno	
+296	2025/06/12	00:38	1167		Arak	Pg	Table mountain	
+297	2025/06/13	00:08	350		Arak	Pg	Llandudno	
+298	2025/06/30	00:28	417		Arak	Pg	Signal hill	
+299	2025/07/13	00:33	440		Arak	Pg	Signal hill	
+300	2025/07/14	00:35	649		Arak	Pg	Signal hill	
+301	2025/07/19	00:35	1100		Arak	Pg	Table mountain	
+302	2025/07/22	00:19	1067		Arak	Pg	Table mountain	
+303	2025/07/27	00:07	600		Arak	Pg	Overseers	
+304	2025/08/01	00:35	750		Arak	Pg	Overseers	
+305	2025/08/06	00:58	1075		Arak	Pg	Table mountain gully	Xc 18 flew to Hout bay
+306	2025/08/08	00:15	1075		Arak	Pg	Table mountain	
+307	2025/08/10	01:03	800		Arak	Pg	Constantiaberg west	
+308	2025/08/12	00:12	399		Arak	Pg	Lions head	
+309	2025/08/15	01:02	451		Arak	Pg	Llandudno	
+310	2025/08/17	00:49	1071		Arak	Pg	Du Toits	Xc 12 landed n1 toll
+311	2025/08/19	00:18	1075		Arak	Pg	Table mountain	
+312	2025/08/24	00:51	851		Arak	Pg	Constantiaberg	Xc 12 kms landed sandy bay
+313	2025/08/30	01:06	1295		Arak	Pg	Franschhoek	Xc18
+314	2025/08/31	00:11	430		Arak	Pg	Lions head	
+315	2025/09/11	00:15	800		Arak	Pg	Mt Lazzuri	
+316	2025/09/12	01:19	1000		Arak	Pg	Bassano	Xc14
+317	2025/09/16	00:43	775		Arak	Pg	Lions head	
+318	2025/09/21	00:22	1050		Arak	Pg	Table mountain	
+319	2025/09/22	00:59	800		Arak	Pg	Lions head	
+320	2025/10/04	00:05	300		Moustache	Pg	Llandudno	
+321	2025/10/05	01:13	450		Arak	Pg	Signal hill	
+322	2025/10/05	00:15	350		Moustache	Pg	Llandudno	
+323	2025/10/07	00:29	430		Arak	Pg	Signal hill	
+324	2025/10/11	00:45			Arak	Pg	Kardoesie	
+325	2025/10/11	00:35			Arak	Pg	Kardoesie	
+326	2025/10/11	00:30			Arak	Pg	Kardoesie	
+327	2025/10/12	00:25			Arak	Pg	Kardoesie	
+328	2025/10/12	00:55			Arak	Pg	Kardoesie	
+329	2025/10/18	00:15	440		Moustache	Pg	Lions head	
+330	2025/10/22	00:25	600		Moustache	Pg		
+331	2025/10/25	01:40	1191		Arak	Pg	Lions head	Over onto apostles twice
+332	2025/11/01	00:39	1004		Arak	Pg	Noordhoek	21km xc land at the Glen
+333	2025/11/08	00:15	200		Arak	Pg	Winch park	3x flights
+334	2025/11/09	00:15	1067		Arak	Pg	Table mountain	
+335	2025/11/21	02:49	1702		Arak	Pg	Pampoen	Xc 56km past citrusdahl
+336	2025/12/13	00:32	717		Arak	Pg	Lions head	
+337	2025/12/14	00:33	913		Arak	Pg	Noordhoek Peak	
+338	2025/12/16	00:25	300		Arak	Pg	Llandudno	
+339	2025/12/21	00:22	1080		Arak	Pg	Table Mountain	
+340	2025/12/22	02:13	1639		Arak	Pg	Du Toits kloof	XC to Gouda 46km
+341	2025/12/29	00:07	350		Arak	Pg	Signal hill	
+342	2025/12/30	00:22	230		Arak	Pg	Llandudno	
+343	2026/01/08	00:07	230		Moustache	Pg	Llandudno	
+344	2026/01/11	00:15	1065		Arak	Pg	Table mountain	
+345	2026/01/14	00:05	230		Moustache	Pg	Llandudno	
+346	2026/01/14	00:05	230		Moustache	Pg	Llandudno	
+347	2026/01/17	00:40	800		Arak	Pg	Lions head	
+348	2026/01/24	02:36	1661		Arak	Pg	Rusty Gate	Xc 39km
+349	2026/01/27	00:23	500		Arak	Pg	Lions head	
+350	2026/02/01	01:15	1201		Arak	Pg	Kardoesie	Xc 17 km
+351	2026/02/06	00:16	1081		Arak	Pg	Stellenboschberg	HnF
+352	2026/02/07	00:34	705		Arak	Pg	Lions head	
+353	2026/02/15	00:19	834		Arak	Pg	Constantiaberg	HnF
+354	2026/02/21	00:06	334		Arak	Pg	Signal hill	
+355	2026/03/07	00:08			Arak	Pg	Kardoesie	
+356	2026/03/19	00:20			Arak	Pg	Lions head	
+357	2026/03/25	00:08			Arak	Pg	Llandudno	
+358	2026/04/02	00:21	2400		Arak	Pg	Verbier	
+359	2026/04/05	00:41	2500		Arak	Pg	Brevant	
+360	2026/04/09	00:05	300		Arak	Pg	Signal hill	
+361	2026/04/12	00:23	274		Joint	Tandem	Hermanus	Barry
+362	2026/04/12	00:07	358		Joint	Tandem	Hermanus	Barry
+363	2026/04/12	00:15	302		Joint	Tandem	Hermanus	Barry
+364	2026/04/12	00:10	388		Joint	Tandem	Hermanus	Barry
+365	2026/04/12	00:08	307		Joint	Tandem	Hermanus	Barry
+366	2026/04/12	00:12	450		Joint	Tandem	Hermanus	Barry
+367	2026/04/14	00:17	280		Moustache	Pg	Llandudno	
+368	2026/04/15	00:48	840		Arak	Pg	Lions head	
+369	2026/04/16	00:13	520		Joint	Tandem	Sir lowrys pass	Barry
+370	2026/04/16	00:37	1062		Arak	Pg	Sir lowrys pass	Hans kop
+371	2026/04/18	00:13	254		Moustache	Pg	Llandudno	
+372	2026/04/23	00:22	1100		Arak	Pg	Table mountain	
+373	2026/04/27	00:10	400		Moustache	Pg	Lower Constantiaberg	
+374	2026/04/27	00:39	771		Arak	Pg	Lions head	
+375	2026/04/29	00:10	600		Arak	Pg	Overseers	
+376	2026/04/30	00:08	400		Joint	Tandem	Hermanus	Barry
+377	2026/04/30	00:05	400		Joint	Tandem	Hermanus	Barry
+378	2026/04/30	00:08	400		Joint	Tandem	Hermanus	Barry
+379	2026/04/30	00:10	400		Joint	Tandem	Hermanus	Barry
+380	2026/04/30	00:21	400		Joint	Tandem	Hermanus	Grant
+381	2026/04/30	00:10	400		Joint	Tandem	Hermanus	Grant
+382	2026/05/07	00:08	350		Moustache	Pg	St James	
+383	2026/05/08	00:08	350		Joint	Tandem	Hermanus	Barry
+384	2026/05/08	00:10	350		Joint	Tandem	Hermanus	Barry
+385	2026/05/08	00:08	350		Moustache	Pg	Hermanus	
+386	2026/05/13	00:10	400		Arak	Pg	Lions head	
+387	2026/05/14	00:20	400		Arak	Pg	Llandudno	
+388	2026/05/15	00:10	300		Joint	Tandem	Signal hill	Barry
+389	2026/05/15	00:10	300		Joint	Tandem	Signal hill	Barry
+390	2026/05/15	00:10	300		Joint	Tandem	Signal hill	Barry
+391	2026/05/21	00:10	300		Joint	Tandem	Signal Hill	Barry
+392	2026/05/21	00:20	300		Joint	Tandem	Signal Hill	Barry
+393	2026/05/26	00:05	300		Pi	Pg	Llandudno	
+394	2026/05/27	00:07	250		Moustache	Pg	Llandudno	
+395	2026/05/27	00:05	250		Moustache	Pg	Llandudno	
+397	2026/05/30	00:15	500		Arak	Pg	Paarl	
+398	2026/06/05	00:57	692		Arak	Pg	Sir Lowrys Pass	
+399	2026/06/06	00:55	300		Arak	Pg	Signal hill	
+400	2026/06/19	00:05	300		Arak	Pg	St James	
+401	2026/06/25	00:15	750		Arak	Pg	Simons Saddle	
+402	2026/06/29	00:15	730		Arak	Pg	Noordhoek peak	
+403	2026/06/30	00:25	340		Arak	Pg	Signal hill	
+404	2026/07/04	00:30	200		Moustache	Pg	Bazaruto	
+405	2026/07/11	00:25	660		Arak	Pg	Overseers	
+406	2026/07/12	00:05	300		Moustache	Pg	St James	
+407	2026/07/19	00:10	1864		Arak	Pg	La Clusaz	
+408	2026/07/19	00:21	2148		Arak	Pg	La Clusaz	
+409	2026/07/20	01:59	1714		Arak	Pg	Annecy	Xc 14
+410	2026/07/21	02:17	2479		Arak	Pg	Sulens	Xc35 to the Aravis
+411	2026/07/23	00:21	2215		Arak	Pg	Chamrousse	
+412	2026/07/23	00:13	958		Arak	Pg	Mountlambert	
+413	2026/07/24	00:50	2250		Arak	Pg	Brevent	
+414	2026/07/24	00:50	2488		Arak	Pg	Verbier	
+415	2026/07/25	00:17	2317		Arak	Pg	Verbier	
