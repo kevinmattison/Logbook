@@ -1,6 +1,7 @@
 "use client";
 import { useMemo, useState } from "react";
 import type { Flight } from "@/lib/types";
+import { flightsToCSV, downloadCSV } from "@/lib/csv";
 
 type SortKey = "date" | "duration" | "elevation";
 
@@ -66,13 +67,25 @@ export default function FlightTable({
         <p className="font-display font-medium text-dusk">
           Flight log <span className="text-haze font-body font-normal">({filtered.length})</span>
         </p>
-        <input
-          type="text"
-          placeholder="Search site, wing, description…"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          className="border border-skylight rounded-md px-3 py-1.5 text-sm text-dusk w-56"
-        />
+        <div className="flex items-center gap-3">
+          <input
+            type="text"
+            placeholder="Search site, wing, description…"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            className="border border-skylight rounded-md px-3 py-1.5 text-sm text-dusk w-56"
+          />
+          <button
+            onClick={() => {
+              const csv = flightsToCSV(filtered);
+              downloadCSV(`flight-log-export-${new Date().toISOString().slice(0, 10)}.csv`, csv);
+            }}
+            className="text-sm border border-skylight text-dusk rounded-md px-3 py-1.5 hover:bg-skylight/40 whitespace-nowrap"
+            title="Export the flights currently shown (respects search/sort) as a CSV file"
+          >
+            Export CSV
+          </button>
+        </div>
       </div>
 
       <div className="overflow-x-auto">

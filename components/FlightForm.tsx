@@ -1,8 +1,15 @@
 "use client";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import type { Flight } from "@/lib/types";
+import { COMMON_SITES } from "@/lib/sites";
 
-export default function FlightForm({ onAdded }: { onAdded: (f: Flight) => void }) {
+export default function FlightForm({
+  onAdded,
+  knownSites = [],
+}: {
+  onAdded: (f: Flight) => void;
+  knownSites?: string[];
+}) {
   const [date, setDate] = useState("");
   const [hours, setHours] = useState("");
   const [minutes, setMinutes] = useState("");
@@ -14,6 +21,11 @@ export default function FlightForm({ onAdded }: { onAdded: (f: Flight) => void }
   const [distance, setDistance] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  const siteOptions = useMemo(() => {
+    const merged = new Set([...COMMON_SITES, ...knownSites]);
+    return Array.from(merged).sort((a, b) => a.localeCompare(b));
+  }, [knownSites]);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -102,11 +114,17 @@ export default function FlightForm({ onAdded }: { onAdded: (f: Flight) => void }
           Venue / site
           <input
             type="text"
-            placeholder="e.g. Lions head"
+            list="site-options"
+            placeholder="Select or type a new site"
             value={site}
             onChange={(e) => setSite(e.target.value)}
             className="border border-skylight rounded-md px-3 py-2 text-dusk"
           />
+          <datalist id="site-options">
+            {siteOptions.map((s) => (
+              <option key={s} value={s} />
+            ))}
+          </datalist>
         </label>
 
         <label className="text-sm text-haze flex flex-col gap-1">

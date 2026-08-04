@@ -32,7 +32,7 @@ export default function Hero({ stats }: { stats: Stats | null }) {
               <div className="font-mono text-skylight text-3xl md:text-4xl font-bold tabular-nums">
                 {stats?.highest_elevation_m ? Math.round(stats.highest_elevation_m).toLocaleString() : "—"}
               </div>
-              <p className="text-skylight/70 text-xs md:text-sm mt-1">highest launch, m</p>
+              <p className="text-skylight/70 text-xs md:text-sm mt-1">highest altitude, m</p>
             </div>
           </div>
         </div>

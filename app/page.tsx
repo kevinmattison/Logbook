@@ -6,6 +6,7 @@ import YearChart from "@/components/YearChart";
 import WingChart from "@/components/WingChart";
 import FlightForm from "@/components/FlightForm";
 import FlightTable from "@/components/FlightTable";
+import DateRangeStats from "@/components/DateRangeStats";
 import type { Flight, Stats } from "@/lib/types";
 
 export default function Home() {
@@ -34,6 +35,10 @@ export default function Home() {
   useEffect(() => {
     load();
   }, [load]);
+
+  const knownSites = flights
+    ? Array.from(new Set(flights.map((f) => f.site).filter((s): s is string => Boolean(s))))
+    : [];
 
   function handleAdded(flight: Flight) {
     setFlights((prev) => (prev ? [flight, ...prev] : [flight]));
@@ -73,7 +78,7 @@ export default function Home() {
             />
             <StatCard label="XC flights" value={String(stats.xc_flights)} accent="ridge" />
             <StatCard
-              label="Highest launch"
+              label="Highest altitude"
               value={stats.highest_elevation_m ? Math.round(stats.highest_elevation_m).toLocaleString() : "—"}
               unit="m"
               accent="thermal"
@@ -88,7 +93,9 @@ export default function Home() {
           </div>
         )}
 
-        <FlightForm onAdded={handleAdded} />
+        {flights && <DateRangeStats flights={flights} />}
+
+        <FlightForm onAdded={handleAdded} knownSites={knownSites} />
 
         {flights ? (
           <FlightTable flights={flights} onDelete={handleDelete} />

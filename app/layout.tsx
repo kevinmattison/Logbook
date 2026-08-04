@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import AlpsBackground from "@/components/AlpsBackground";
 
 const display = Space_Grotesk({
   subsets: ["latin"],
@@ -26,7 +27,8 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${display.variable} ${body.variable} ${mono.variable} font-body bg-paper text-dusk`}>
+      <body className={`${display.variable} ${body.variable} ${mono.variable} font-body text-dusk relative`}>
+        <AlpsBackground />
         {children}
       </body>
     </html>
