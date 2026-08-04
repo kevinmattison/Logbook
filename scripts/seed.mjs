@@ -9,7 +9,9 @@ import { neon } from "@neondatabase/serverless";
 import { readFileSync } from "fs";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
-import "dotenv/config";
+import dotenv from "dotenv"
+
+dotenv.config({ path: ".env.local" })
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const FORCE = process.argv.includes("--force");

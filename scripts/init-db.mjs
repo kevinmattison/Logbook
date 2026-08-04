@@ -1,6 +1,8 @@
 // Creates the flights table. Safe to run multiple times.
 import { neon } from "@neondatabase/serverless";
-import "dotenv/config";
+import dotenv from "dotenv";
+
+dotenv.config({ path: ".env.local" });
 
 const connectionString = process.env.DATABASE_URL || process.env.POSTGRES_URL;
 if (!connectionString) {
