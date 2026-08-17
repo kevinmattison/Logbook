@@ -1,5 +1,5 @@
 import { Resend } from "resend";
-import { INDEMNITY_SECTIONS, PILOT_NAME } from "./indemnityText";
+import { CONFIRMATIONS, INDEMNITY_SECTIONS, PILOT_NAME } from "./indemnityText";
 import type { IndemnityForm } from "./types";
 
 const WITNESS_EMAIL = "k_mattison@icloud.com";
@@ -28,6 +28,12 @@ function renderIndemnityEmail(form: IndemnityForm) {
     return heading + paragraphs;
   }).join("");
 
+  const confirmations = CONFIRMATIONS.map((c) => {
+    const checked = Boolean(form[c.key]);
+    const mark = checked ? "&#9989;" : "&#9744;";
+    return `<p style="margin:0 0 8px;line-height:1.5;">${mark} ${escapeHtml(c.label)}</p>`;
+  }).join("");
+
   return `
     <div style="font-family:Arial,sans-serif;color:#16233A;max-width:640px;">
       <h1 style="font-size:18px;">Indemnity and Release Form — Signed Copy</h1>
@@ -38,6 +44,9 @@ function renderIndemnityEmail(form: IndemnityForm) {
       <p><strong>Signed on:</strong> ${signedAt}</p>
       <hr style="margin:20px 0;border:none;border-top:1px solid #EAF1F6;" />
       ${sections}
+      <hr style="margin:20px 0;border:none;border-top:1px solid #EAF1F6;" />
+      <p style="font-weight:600;margin:0 0 8px;">Confirmations accepted by the passenger</p>
+      ${confirmations}
       <hr style="margin:20px 0;border:none;border-top:1px solid #EAF1F6;" />
       <p style="font-weight:600;">Passenger signature</p>
       <img src="${form.signature_data_url}" alt="Passenger signature" style="max-width:320px;border:1px solid #EAF1F6;border-radius:6px;" />
