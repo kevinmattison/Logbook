@@ -7,12 +7,16 @@ import WingChart from "@/components/WingChart";
 import FlightForm from "@/components/FlightForm";
 import FlightTable from "@/components/FlightTable";
 import DateRangeStats from "@/components/DateRangeStats";
+import VenuesTable from "@/components/VenuesTable";
 import type { Flight, Stats } from "@/lib/types";
+
+type Tab = "log" | "venues";
 
 export default function Home() {
   const [flights, setFlights] = useState<Flight[] | null>(null);
   const [stats, setStats] = useState<Stats | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [tab, setTab] = useState<Tab>("log");
 
   const load = useCallback(async () => {
     try {
@@ -68,37 +72,61 @@ export default function Home() {
           </div>
         )}
 
-        {stats && (
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <StatCard label="Total flights" value={String(stats.total_flights)} accent="dusk" />
-            <StatCard
-              label="Longest flight"
-              value={formatHM(stats.longest_flight_minutes)}
-              accent="sky"
-            />
-            <StatCard label="XC flights" value={String(stats.xc_flights)} accent="ridge" />
-            <StatCard
-              label="Highest altitude"
-              value={stats.highest_elevation_m ? Math.round(stats.highest_elevation_m).toLocaleString() : "—"}
-              unit="m"
-              accent="thermal"
-            />
-          </div>
-        )}
+        <div className="flex gap-6 border-b border-skylight">
+          {(["log", "venues"] as Tab[]).map((t) => (
+            <button
+              key={t}
+              onClick={() => setTab(t)}
+              className={`pb-3 -mb-px text-sm font-display font-medium border-b-2 transition-colors ${
+                tab === t
+                  ? "text-dusk border-sky"
+                  : "text-haze border-transparent hover:text-dusk"
+              }`}
+            >
+              {t === "log" ? "Log" : "Venues"}
+            </button>
+          ))}
+        </div>
 
-        {stats && (
-          <div className="grid md:grid-cols-2 gap-4">
-            <YearChart data={stats.hours_by_year} />
-            <WingChart data={stats.hours_by_wing} />
-          </div>
-        )}
+        {tab === "log" ? (
+          <>
+            {stats && (
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <StatCard label="Total flights" value={String(stats.total_flights)} accent="dusk" />
+                <StatCard
+                  label="Longest flight"
+                  value={formatHM(stats.longest_flight_minutes)}
+                  accent="sky"
+                />
+                <StatCard label="XC flights" value={String(stats.xc_flights)} accent="ridge" />
+                <StatCard
+                  label="Highest altitude"
+                  value={stats.highest_elevation_m ? Math.round(stats.highest_elevation_m).toLocaleString() : "—"}
+                  unit="m"
+                  accent="thermal"
+                />
+              </div>
+            )}
 
-        {flights && <DateRangeStats flights={flights} />}
+            {stats && (
+              <div className="grid md:grid-cols-2 gap-4">
+                <YearChart data={stats.hours_by_year} />
+                <WingChart data={stats.hours_by_wing} />
+              </div>
+            )}
 
-        <FlightForm onAdded={handleAdded} knownSites={knownSites} />
+            {flights && <DateRangeStats flights={flights} />}
 
-        {flights ? (
-          <FlightTable flights={flights} onDelete={handleDelete} />
+            <FlightForm onAdded={handleAdded} knownSites={knownSites} />
+
+            {flights ? (
+              <FlightTable flights={flights} onDelete={handleDelete} />
+            ) : (
+              !error && <p className="text-haze text-sm">Loading your logbook…</p>
+            )}
+          </>
+        ) : flights ? (
+          <VenuesTable flights={flights} />
         ) : (
           !error && <p className="text-haze text-sm">Loading your logbook…</p>
         )}
