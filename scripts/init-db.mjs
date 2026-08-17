@@ -31,6 +31,20 @@ async function main() {
   `);
   await sql.query(`CREATE INDEX IF NOT EXISTS flights_date_idx ON flights (flight_date);`);
   await sql.query(`CREATE INDEX IF NOT EXISTS flights_wing_idx ON flights (wing);`);
+  await sql.query(`
+    CREATE TABLE IF NOT EXISTS indemnity_forms (
+      id SERIAL PRIMARY KEY,
+      passenger_name TEXT NOT NULL,
+      email TEXT NOT NULL,
+      phone TEXT NOT NULL,
+      confirmed_adult BOOLEAN NOT NULL DEFAULT FALSE,
+      confirmed_risk BOOLEAN NOT NULL DEFAULT FALSE,
+      confirmed_insurance BOOLEAN NOT NULL DEFAULT FALSE,
+      confirmed_signature BOOLEAN NOT NULL DEFAULT FALSE,
+      signature_data_url TEXT NOT NULL,
+      created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    );
+  `);
   console.log("Schema created / verified.");
 }
 

@@ -220,3 +220,4 @@ __marimo__/
 node_modules/
 .vscode/
 .claude/
+.env.local

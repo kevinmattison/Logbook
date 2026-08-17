@@ -1,5 +1,5 @@
 import { neon } from "@neondatabase/serverless";
-import type { Flight } from "./types";
+import type { Flight, IndemnityForm, NewIndemnityInput } from "./types";
 
 function getSql() {
   const connectionString = process.env.DATABASE_URL || process.env.POSTGRES_URL;
@@ -27,6 +27,20 @@ export async function ensureSchema() {
       comments TEXT,
       is_aggregate BOOLEAN NOT NULL DEFAULT FALSE,
       aggregate_label TEXT,
+      created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    );
+  `);
+  await sql.query(`
+    CREATE TABLE IF NOT EXISTS indemnity_forms (
+      id SERIAL PRIMARY KEY,
+      passenger_name TEXT NOT NULL,
+      email TEXT NOT NULL,
+      phone TEXT NOT NULL,
+      confirmed_adult BOOLEAN NOT NULL DEFAULT FALSE,
+      confirmed_risk BOOLEAN NOT NULL DEFAULT FALSE,
+      confirmed_insurance BOOLEAN NOT NULL DEFAULT FALSE,
+      confirmed_signature BOOLEAN NOT NULL DEFAULT FALSE,
+      signature_data_url TEXT NOT NULL,
       created_at TIMESTAMPTZ NOT NULL DEFAULT now()
     );
   `);
@@ -85,4 +99,25 @@ export async function getNextFlightNumber(): Promise<number> {
 export async function deleteFlight(id: number): Promise<void> {
   const sql = getSql();
   await sql.query(`DELETE FROM flights WHERE id = $1 AND is_aggregate = FALSE;`, [id]);
+}
+
+export async function insertIndemnityForm(input: NewIndemnityInput): Promise<IndemnityForm> {
+  const sql = getSql();
+  const rows = (await sql.query(
+    `INSERT INTO indemnity_forms (
+      passenger_name, email, phone, confirmed_adult, confirmed_risk, confirmed_insurance, confirmed_signature, signature_data_url
+    ) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+    RETURNING *;`,
+    [
+      input.passenger_name,
+      input.email,
+      input.phone,
+      input.confirmed_adult,
+      input.confirmed_risk,
+      input.confirmed_insurance,
+      input.confirmed_signature,
+      input.signature_data_url,
+    ]
+  )) as unknown as IndemnityForm[];
+  return rows[0];
 }

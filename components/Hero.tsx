@@ -1,12 +1,21 @@
+import Link from "next/link";
 import type { Stats } from "@/lib/types";
 
 export default function Hero({ stats }: { stats: Stats | null }) {
   return (
     <div className="bg-atmosphere altimeter-tick relative overflow-hidden">
       <div className="max-w-5xl mx-auto px-6 pt-14 pb-10 md:pt-20 md:pb-14">
-        <p className="font-display text-skylight/70 tracking-[0.2em] uppercase text-xs md:text-sm mb-3">
-          Flight Log
-        </p>
+        <div className="flex items-center justify-between mb-3">
+          <p className="font-display text-skylight/70 tracking-[0.2em] uppercase text-xs md:text-sm">
+            Flight Log
+          </p>
+          <Link
+            href="/indemnity"
+            className="text-xs md:text-sm font-display font-medium bg-thermal text-dusk rounded-md px-3 py-1.5 hover:bg-thermal/90 transition-colors whitespace-nowrap"
+          >
+            Tandem indemnity form
+          </Link>
+        </div>
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
           <div>
             <div className="font-mono text-skylight leading-none text-6xl md:text-8xl font-bold tabular-nums">

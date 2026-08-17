@@ -25,6 +25,30 @@ export interface NewFlightInput {
   flight_type?: string;
 }
 
+export interface IndemnityForm {
+  id: number;
+  passenger_name: string;
+  email: string;
+  phone: string;
+  confirmed_adult: boolean;
+  confirmed_risk: boolean;
+  confirmed_insurance: boolean;
+  confirmed_signature: boolean;
+  signature_data_url: string;
+  created_at: string;
+}
+
+export interface NewIndemnityInput {
+  passenger_name: string;
+  email: string;
+  phone: string;
+  confirmed_adult: boolean;
+  confirmed_risk: boolean;
+  confirmed_insurance: boolean;
+  confirmed_signature: boolean;
+  signature_data_url: string;
+}
+
 export interface Stats {
   total_hours: number;
   ytd_hours: number;
