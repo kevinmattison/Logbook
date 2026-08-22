@@ -4,8 +4,6 @@ import type { Flight } from "@/lib/types";
 import { flightsToCSV, downloadCSV } from "@/lib/csv";
 import ImportCsvButton from "@/components/ImportCsvButton";
 
-type SortKey = "date" | "duration" | "elevation";
-
 interface EditState {
   date: string;
   hours: string;
@@ -46,8 +44,6 @@ export default function FlightTable({
   knownWings?: string[];
 }) {
   const [query, setQuery] = useState("");
-  const [sortKey, setSortKey] = useState<SortKey>("date");
-  const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
   const [editingId, setEditingId] = useState<number | null>(null);
   const [edit, setEdit] = useState<EditState | null>(null);
   const [saving, setSaving] = useState(false);
@@ -80,32 +76,13 @@ export default function FlightTable({
     });
 
     list = [...list].sort((a, b) => {
-      let av = 0;
-      let bv = 0;
-      if (sortKey === "date") {
-        av = a.flight_date ? new Date(a.flight_date).getTime() : 0;
-        bv = b.flight_date ? new Date(b.flight_date).getTime() : 0;
-      } else if (sortKey === "duration") {
-        av = a.duration_minutes;
-        bv = b.duration_minutes;
-      } else {
-        av = Number(a.max_elevation_m) || 0;
-        bv = Number(b.max_elevation_m) || 0;
-      }
-      return sortDir === "asc" ? av - bv : bv - av;
+      const av = a.is_aggregate || a.flight_number == null ? -Infinity : a.flight_number;
+      const bv = b.is_aggregate || b.flight_number == null ? -Infinity : b.flight_number;
+      return bv - av;
     });
 
     return list;
-  }, [flights, query, sortKey, sortDir]);
-
-  function toggleSort(key: SortKey) {
-    if (sortKey === key) {
-      setSortDir((d) => (d === "asc" ? "desc" : "asc"));
-    } else {
-      setSortKey(key);
-      setSortDir("desc");
-    }
-  }
+  }, [flights, query]);
 
   function startEdit(f: Flight) {
     setEditingId(f.id);
@@ -179,28 +156,13 @@ export default function FlightTable({
           <thead>
             <tr className="text-left text-haze text-xs uppercase tracking-wide">
               <th className="px-5 py-3 font-medium">#</th>
-              <th
-                className="px-3 py-3 font-medium cursor-pointer select-none"
-                onClick={() => toggleSort("date")}
-              >
-                Date {sortKey === "date" && (sortDir === "asc" ? "↑" : "↓")}
-              </th>
-              <th
-                className="px-3 py-3 font-medium cursor-pointer select-none"
-                onClick={() => toggleSort("duration")}
-              >
-                Duration {sortKey === "duration" && (sortDir === "asc" ? "↑" : "↓")}
-              </th>
+              <th className="px-3 py-3 font-medium">Date</th>
+              <th className="px-3 py-3 font-medium">Duration</th>
               <th className="px-3 py-3 font-medium">Site</th>
               <th className="px-3 py-3 font-medium">Wing</th>
-              <th
-                className="px-3 py-3 font-medium cursor-pointer select-none"
-                onClick={() => toggleSort("elevation")}
-              >
-                Max elev. {sortKey === "elevation" && (sortDir === "asc" ? "↑" : "↓")}
-              </th>
+              <th className="px-3 py-3 font-medium">Max elev.</th>
               <th className="px-3 py-3 font-medium">Description</th>
-              <th className="px-3 py-3 font-medium"></th>
+              <th className="px-3 py-3 font-medium sticky right-0 bg-white border-l border-skylight"></th>
             </tr>
           </thead>
           <tbody>
@@ -274,7 +236,7 @@ export default function FlightTable({
                         className="border border-skylight rounded-md px-2 py-1 text-dusk w-full"
                       />
                     </td>
-                    <td className="px-3 py-2.5 text-right whitespace-nowrap">
+                    <td className="px-3 py-2.5 text-right whitespace-nowrap sticky right-0 bg-skylight/20 border-l border-skylight">
                       <button
                         onClick={() => saveEdit(f.id)}
                         disabled={saving}
@@ -295,7 +257,7 @@ export default function FlightTable({
               }
 
               return (
-                <tr key={f.id} className="border-t border-skylight/70 hover:bg-skylight/40">
+                <tr key={f.id} className="group border-t border-skylight/70 hover:bg-skylight/40">
                   <td className="px-5 py-2.5 font-mono text-haze">
                     {f.is_aggregate ? "1–35" : f.flight_number}
                   </td>
@@ -335,7 +297,7 @@ export default function FlightTable({
                   <td className="px-3 py-2.5 text-dusk/80 max-w-xs truncate" title={f.comments || f.aggregate_label || ""}>
                     {f.comments || f.aggregate_label || "—"}
                   </td>
-                  <td className="px-3 py-2.5 text-right whitespace-nowrap">
+                  <td className="px-3 py-2.5 text-right whitespace-nowrap sticky right-0 bg-white group-hover:bg-skylight/40 border-l border-skylight">
                     {!f.is_aggregate && (
                       <>
                         <button

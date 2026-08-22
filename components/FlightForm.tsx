@@ -18,7 +18,6 @@ export default function FlightForm({
   const [site, setSite] = useState("");
   const [wing, setWing] = useState("");
   const [comments, setComments] = useState("");
-  const [showMore, setShowMore] = useState(false);
   const [elevation, setElevation] = useState("");
   const [distance, setDistance] = useState("");
   const [submitting, setSubmitting] = useState(false);
@@ -70,7 +69,6 @@ export default function FlightForm({
       setComments("");
       setElevation("");
       setDistance("");
-      setShowMore(false);
     } catch (err: any) {
       setError(err.message || "Something went wrong.");
     } finally {
@@ -163,39 +161,29 @@ export default function FlightForm({
         />
       </label>
 
-      {showMore && (
-        <div className="grid grid-cols-2 gap-4 mt-4">
-          <label className="text-sm text-haze flex flex-col gap-1">
-            Max elevation (m)
-            <input
-              type="number"
-              value={elevation}
-              onChange={(e) => setElevation(e.target.value)}
-              className="border border-skylight rounded-md px-3 py-2 text-dusk"
-            />
-          </label>
-          <label className="text-sm text-haze flex flex-col gap-1">
-            Distance (km)
-            <input
-              type="number"
-              step="0.1"
-              value={distance}
-              onChange={(e) => setDistance(e.target.value)}
-              className="border border-skylight rounded-md px-3 py-2 text-dusk"
-            />
-          </label>
-        </div>
-      )}
+      <div className="grid grid-cols-2 gap-4 mt-4">
+        <label className="text-sm text-haze flex flex-col gap-1">
+          Max elevation (m)
+          <input
+            type="number"
+            value={elevation}
+            onChange={(e) => setElevation(e.target.value)}
+            className="border border-skylight rounded-md px-3 py-2 text-dusk"
+          />
+        </label>
+        <label className="text-sm text-haze flex flex-col gap-1">
+          Distance (km)
+          <input
+            type="number"
+            step="0.1"
+            value={distance}
+            onChange={(e) => setDistance(e.target.value)}
+            className="border border-skylight rounded-md px-3 py-2 text-dusk"
+          />
+        </label>
+      </div>
 
-      <div className="flex items-center justify-between mt-4">
-        <button
-          type="button"
-          onClick={() => setShowMore((v) => !v)}
-          className="text-sky text-sm hover:underline"
-        >
-          {showMore ? "Hide" : "Add"} elevation / distance
-        </button>
-
+      <div className="flex items-center justify-end mt-4">
         <button
           type="submit"
           disabled={submitting}
