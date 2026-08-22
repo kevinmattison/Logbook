@@ -6,9 +6,11 @@ import { COMMON_SITES } from "@/lib/sites";
 export default function FlightForm({
   onAdded,
   knownSites = [],
+  knownWings = [],
 }: {
   onAdded: (f: Flight) => void;
   knownSites?: string[];
+  knownWings?: string[];
 }) {
   const [date, setDate] = useState("");
   const [hours, setHours] = useState("");
@@ -26,6 +28,11 @@ export default function FlightForm({
     const merged = new Set([...COMMON_SITES, ...knownSites]);
     return Array.from(merged).sort((a, b) => a.localeCompare(b));
   }, [knownSites]);
+
+  const wingOptions = useMemo(
+    () => [...knownWings].sort((a, b) => a.localeCompare(b)),
+    [knownWings]
+  );
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -131,11 +138,17 @@ export default function FlightForm({
           Wing
           <input
             type="text"
-            placeholder="e.g. Arak"
+            list="wing-options"
+            placeholder="Select or type a new wing"
             value={wing}
             onChange={(e) => setWing(e.target.value)}
             className="border border-skylight rounded-md px-3 py-2 text-dusk"
           />
+          <datalist id="wing-options">
+            {wingOptions.map((w) => (
+              <option key={w} value={w} />
+            ))}
+          </datalist>
         </label>
       </div>
 

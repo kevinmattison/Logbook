@@ -1,8 +1,22 @@
 import { NextRequest, NextResponse } from "next/server";
-import { ensureSchema, insertIndemnityForm } from "@/lib/db";
+import { ensureSchema, getIndemnityForms, getSettings, insertIndemnityForm } from "@/lib/db";
 import { sendIndemnityCopy } from "@/lib/email";
 
 export const dynamic = "force-dynamic";
+
+export async function GET() {
+  try {
+    await ensureSchema();
+    const forms = await getIndemnityForms();
+    return NextResponse.json({ forms });
+  } catch (err: any) {
+    console.error(err);
+    return NextResponse.json(
+      { error: "Could not load signed indemnity forms.", detail: err?.message },
+      { status: 500 }
+    );
+  }
+}
 
 export async function POST(req: NextRequest) {
   try {
@@ -44,7 +58,8 @@ export async function POST(req: NextRequest) {
     });
 
     try {
-      await sendIndemnityCopy(form);
+      const settings = await getSettings();
+      await sendIndemnityCopy(form, settings);
     } catch (emailErr) {
       console.error("Could not email signed indemnity copy:", emailErr);
     }

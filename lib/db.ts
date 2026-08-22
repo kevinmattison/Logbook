@@ -1,5 +1,12 @@
 import { neon } from "@neondatabase/serverless";
-import type { Flight, IndemnityForm, NewIndemnityInput } from "./types";
+import type {
+  Flight,
+  IndemnityForm,
+  NewIndemnityInput,
+  NewPilotSettingsInput,
+  PilotSettings,
+  UpdateFlightInput,
+} from "./types";
 
 function getSql() {
   const connectionString = process.env.DATABASE_URL || process.env.POSTGRES_URL;
@@ -8,7 +15,7 @@ function getSql() {
       "No database connection string found. Set DATABASE_URL (or POSTGRES_URL) in your environment."
     );
   }
-  return neon(connectionString);
+  return neon(connectionString, { fetchOptions: { cache: "no-store" } });
 }
 
 export async function ensureSchema() {
@@ -42,6 +49,17 @@ export async function ensureSchema() {
       confirmed_signature BOOLEAN NOT NULL DEFAULT FALSE,
       signature_data_url TEXT NOT NULL,
       created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+    );
+  `);
+  await sql.query(`
+    CREATE TABLE IF NOT EXISTS pilot_settings (
+      id INTEGER PRIMARY KEY DEFAULT 1,
+      pilot_name TEXT,
+      sahpa_number TEXT,
+      email TEXT,
+      phone TEXT,
+      updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+      CONSTRAINT pilot_settings_single_row CHECK (id = 1)
     );
   `);
 }
@@ -101,6 +119,36 @@ export async function deleteFlight(id: number): Promise<void> {
   await sql.query(`DELETE FROM flights WHERE id = $1 AND is_aggregate = FALSE;`, [id]);
 }
 
+export async function updateFlight(id: number, input: UpdateFlightInput): Promise<Flight> {
+  const sql = getSql();
+  const rows = (await sql.query(
+    `UPDATE flights SET
+      flight_date = $2,
+      duration_minutes = $3,
+      site = $4,
+      wing = $5,
+      comments = $6,
+      max_elevation_m = $7,
+      distance_km = $8
+    WHERE id = $1 AND is_aggregate = FALSE
+    RETURNING *;`,
+    [
+      id,
+      input.flight_date,
+      input.duration_minutes,
+      input.site,
+      input.wing,
+      input.comments,
+      input.max_elevation_m,
+      input.distance_km,
+    ]
+  )) as unknown as Flight[];
+  if (!rows[0]) {
+    throw new Error("Flight not found or cannot be edited.");
+  }
+  return rows[0];
+}
+
 export async function insertIndemnityForm(input: NewIndemnityInput): Promise<IndemnityForm> {
   const sql = getSql();
   const rows = (await sql.query(
@@ -119,5 +167,38 @@ export async function insertIndemnityForm(input: NewIndemnityInput): Promise<Ind
       input.signature_data_url,
     ]
   )) as unknown as IndemnityForm[];
+  return rows[0];
+}
+
+export async function getIndemnityForms(): Promise<IndemnityForm[]> {
+  const sql = getSql();
+  const rows = (await sql.query(
+    `SELECT * FROM indemnity_forms ORDER BY created_at DESC;`
+  )) as unknown as IndemnityForm[];
+  return rows;
+}
+
+export async function getSettings(): Promise<PilotSettings | null> {
+  const sql = getSql();
+  const rows = (await sql.query(
+    `SELECT pilot_name, sahpa_number, email, phone, updated_at FROM pilot_settings WHERE id = 1;`
+  )) as unknown as PilotSettings[];
+  return rows[0] || null;
+}
+
+export async function upsertSettings(input: NewPilotSettingsInput): Promise<PilotSettings> {
+  const sql = getSql();
+  const rows = (await sql.query(
+    `INSERT INTO pilot_settings (id, pilot_name, sahpa_number, email, phone, updated_at)
+     VALUES (1, $1, $2, $3, $4, now())
+     ON CONFLICT (id) DO UPDATE SET
+       pilot_name = EXCLUDED.pilot_name,
+       sahpa_number = EXCLUDED.sahpa_number,
+       email = EXCLUDED.email,
+       phone = EXCLUDED.phone,
+       updated_at = now()
+     RETURNING pilot_name, sahpa_number, email, phone, updated_at;`,
+    [input.pilot_name, input.sahpa_number, input.email, input.phone]
+  )) as unknown as PilotSettings[];
   return rows[0];
 }

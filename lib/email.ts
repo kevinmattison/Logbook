@@ -1,6 +1,6 @@
 import { Resend } from "resend";
-import { CONFIRMATIONS, INDEMNITY_SECTIONS, PILOT_NAME } from "./indemnityText";
-import type { IndemnityForm } from "./types";
+import { buildIndemnitySections, CONFIRMATIONS, DEFAULT_PILOT_NAME } from "./indemnityText";
+import type { IndemnityForm, PilotSettings } from "./types";
 
 const WITNESS_EMAIL = "k_mattison@icloud.com";
 
@@ -12,21 +12,24 @@ function escapeHtml(value: string) {
     .replace(/"/g, "&quot;");
 }
 
-function renderIndemnityEmail(form: IndemnityForm) {
+function renderIndemnityEmail(form: IndemnityForm, settings: PilotSettings | null) {
+  const pilotName = settings?.pilot_name || DEFAULT_PILOT_NAME;
   const signedAt = new Date(form.created_at).toLocaleString("en-ZA", {
     dateStyle: "long",
     timeStyle: "short",
   });
 
-  const sections = INDEMNITY_SECTIONS.map((section) => {
-    const heading = section.heading
-      ? `<p style="font-weight:600;margin:16px 0 8px;">${section.heading}</p>`
-      : "";
-    const paragraphs = section.paragraphs
-      .map((p) => `<p style="margin:0 0 8px;line-height:1.5;">${p}</p>`)
-      .join("");
-    return heading + paragraphs;
-  }).join("");
+  const sections = buildIndemnitySections(pilotName)
+    .map((section) => {
+      const heading = section.heading
+        ? `<p style="font-weight:600;margin:16px 0 8px;">${section.heading}</p>`
+        : "";
+      const paragraphs = section.paragraphs
+        .map((p) => `<p style="margin:0 0 8px;line-height:1.5;">${p}</p>`)
+        .join("");
+      return heading + paragraphs;
+    })
+    .join("");
 
   const confirmations = CONFIRMATIONS.map((c) => {
     const checked = Boolean(form[c.key]);
@@ -37,7 +40,9 @@ function renderIndemnityEmail(form: IndemnityForm) {
   return `
     <div style="font-family:Arial,sans-serif;color:#16233A;max-width:640px;">
       <h1 style="font-size:18px;">Indemnity and Release Form — Signed Copy</h1>
-      <p><strong>Pilot:</strong> ${escapeHtml(PILOT_NAME)}</p>
+      <p><strong>Pilot:</strong> ${escapeHtml(pilotName)}${
+    settings?.sahpa_number ? ` (SAHPA No. ${escapeHtml(settings.sahpa_number)})` : ""
+  }</p>
       <p><strong>Passenger:</strong> ${escapeHtml(form.passenger_name)}</p>
       <p><strong>Email:</strong> ${escapeHtml(form.email)}</p>
       <p><strong>Phone:</strong> ${escapeHtml(form.phone)}</p>
@@ -54,7 +59,10 @@ function renderIndemnityEmail(form: IndemnityForm) {
   `;
 }
 
-export async function sendIndemnityCopy(form: IndemnityForm): Promise<void> {
+export async function sendIndemnityCopy(
+  form: IndemnityForm,
+  settings: PilotSettings | null
+): Promise<void> {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
     console.warn("RESEND_API_KEY not set — skipping indemnity email.");
@@ -63,7 +71,7 @@ export async function sendIndemnityCopy(form: IndemnityForm): Promise<void> {
 
   const resend = new Resend(apiKey);
   const from = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
-  const html = renderIndemnityEmail(form);
+  const html = renderIndemnityEmail(form, settings);
   const subject = `Signed tandem indemnity — ${form.passenger_name}`;
 
   const recipients = Array.from(new Set([form.email, WITNESS_EMAIL]));

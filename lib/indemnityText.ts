@@ -1,14 +1,21 @@
-export const PILOT_NAME = "Kevin Mattison";
+export const DEFAULT_PILOT_NAME = "Kevin Mattison";
 
 export interface IndemnitySection {
   heading?: string;
   paragraphs: string[];
 }
 
-export const INDEMNITY_SECTIONS: IndemnitySection[] = [
+export function buildIndemnitySections(pilotName: string): IndemnitySection[] {
+  return INDEMNITY_SECTION_TEMPLATES.map((section) => ({
+    heading: section.heading,
+    paragraphs: section.paragraphs.map((p) => p.replace(/\{\{PILOT_NAME\}\}/g, pilotName)),
+  }));
+}
+
+const INDEMNITY_SECTION_TEMPLATES: IndemnitySection[] = [
   {
     paragraphs: [
-      "Indemnity and Release Form between the Passenger (including any person carried as a passenger on a tandem paragliding flight with the Pilot, whether for training, familiarisation, or leisure purposes) and the Pilot, Kevin Mattison — a licensed / student paragliding pilot training towards a tandem paragliding rating with the South African Hang Gliding and Paragliding Association (“SAHPA”).",
+      "Indemnity and Release Form between the Passenger (including any person carried as a passenger on a tandem paragliding flight with the Pilot, whether for training, familiarisation, or leisure purposes) and the Pilot, {{PILOT_NAME}} — a licensed / student paragliding pilot training towards a tandem paragliding rating with the South African Hang Gliding and Paragliding Association (“SAHPA”).",
       "The flight contemplated by this Agreement is undertaken on a private, non-commercial basis for training and skills-development purposes and not for commercial gain or reward.",
     ],
   },
@@ -47,7 +54,7 @@ export const INDEMNITY_SECTIONS: IndemnitySection[] = [
   {
     heading: "Exclusion of Liability",
     paragraphs: [
-      "10. I, the undersigned Passenger, my heirs, executors, administrators or assigns, or my estate, hereby now and in the future unconditionally indemnify, hold harmless, and release the Pilot, Kevin Mattison, his heirs, executors, administrators and assigns, and any landowner on whose property the Flights depart, transit over, or arrive, from any and all liability, claims, actions, and causes of action whatsoever, arising out of any damage, loss, personal injury, bodily injury, death, or damage to my property and/or any other personal or financial injury or loss.",
+      "10. I, the undersigned Passenger, my heirs, executors, administrators or assigns, or my estate, hereby now and in the future unconditionally indemnify, hold harmless, and release the Pilot, {{PILOT_NAME}}, his heirs, executors, administrators and assigns, and any landowner on whose property the Flights depart, transit over, or arrive, from any and all liability, claims, actions, and causes of action whatsoever, arising out of any damage, loss, personal injury, bodily injury, death, or damage to my property and/or any other personal or financial injury or loss.",
       "11. The exclusion of liability in clause 10 applies while upon the premises or in or around the paraglider, harness, tow launch equipment, or any other vehicle used, whether stopped or in motion, and whether the loss, damage, or injury results from the negligence or gross negligence, active or passive, of the Pilot or any other person or entity referred to in clause 10.",
       "12. I further declare that if, as a result of my own negligence or wilful misconduct, anyone suffers personal injury, death, or financial loss, I hereby indemnify the Pilot for any damages he may suffer as a result of defending any action brought against him, or being held liable to any third party, in connection with my act or omission.",
     ],

@@ -44,6 +44,10 @@ export default function Home() {
     ? Array.from(new Set(flights.map((f) => f.site).filter((s): s is string => Boolean(s))))
     : [];
 
+  const knownWings = flights
+    ? Array.from(new Set(flights.map((f) => f.wing).filter((s): s is string => Boolean(s))))
+    : [];
+
   function handleAdded(flight: Flight) {
     setFlights((prev) => (prev ? [flight, ...prev] : [flight]));
     load(); // refresh stats now that a new flight is in
@@ -58,6 +62,18 @@ export default function Home() {
     } else {
       load();
     }
+  }
+
+  async function handleUpdate(id: number, updates: Record<string, any>) {
+    const res = await fetch(`/api/flights/${id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(updates),
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || "Could not save changes.");
+    setFlights((prev) => (prev ? prev.map((f) => (f.id === id ? data.flight : f)) : prev));
+    load();
   }
 
   return (
@@ -117,10 +133,17 @@ export default function Home() {
 
             {flights && <DateRangeStats flights={flights} />}
 
-            <FlightForm onAdded={handleAdded} knownSites={knownSites} />
+            <FlightForm onAdded={handleAdded} knownSites={knownSites} knownWings={knownWings} />
 
             {flights ? (
-              <FlightTable flights={flights} onDelete={handleDelete} />
+              <FlightTable
+                flights={flights}
+                onDelete={handleDelete}
+                onUpdate={handleUpdate}
+                onImported={load}
+                knownSites={knownSites}
+                knownWings={knownWings}
+              />
             ) : (
               !error && <p className="text-haze text-sm">Loading your logbook…</p>
             )}

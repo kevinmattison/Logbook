@@ -30,3 +30,13 @@ CREATE TABLE IF NOT EXISTS indemnity_forms (
   signature_data_url TEXT NOT NULL,
   created_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
+
+CREATE TABLE IF NOT EXISTS pilot_settings (
+  id INTEGER PRIMARY KEY DEFAULT 1,
+  pilot_name TEXT,
+  sahpa_number TEXT,
+  email TEXT,
+  phone TEXT,
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  CONSTRAINT pilot_settings_single_row CHECK (id = 1)
+);

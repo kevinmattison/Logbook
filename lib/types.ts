@@ -25,6 +25,31 @@ export interface NewFlightInput {
   flight_type?: string;
 }
 
+export interface UpdateFlightInput {
+  flight_date: string | null;
+  duration_minutes: number;
+  site: string | null;
+  wing: string | null;
+  comments: string | null;
+  max_elevation_m: number | null;
+  distance_km: number | null;
+}
+
+export interface PilotSettings {
+  pilot_name: string | null;
+  sahpa_number: string | null;
+  email: string | null;
+  phone: string | null;
+  updated_at: string;
+}
+
+export interface NewPilotSettingsInput {
+  pilot_name: string | null;
+  sahpa_number: string | null;
+  email: string | null;
+  phone: string | null;
+}
+
 export interface IndemnityForm {
   id: number;
   passenger_name: string;
