@@ -10,6 +10,7 @@ const config: Config = {
         sky: "#3E7CB1",
         skylight: "#EAF1F6",
         thermal: "#E8A23D",
+        rust: "#A6431D",
         ridge: "#4F8A6D",
         alert: "#C1553D",
         paper: "#F7F9FA",

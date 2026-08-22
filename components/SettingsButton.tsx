@@ -64,7 +64,7 @@ export default function SettingsButton() {
     <>
       <button
         onClick={handleOpen}
-        className="text-xs md:text-sm font-display font-medium bg-skylight/20 text-skylight border border-skylight/40 rounded-md px-3 py-1.5 hover:bg-skylight/30 transition-colors whitespace-nowrap"
+        className="text-xs md:text-sm font-display font-medium bg-skylight text-rust border border-rust/40 rounded-md px-3 py-1.5 hover:bg-white transition-colors whitespace-nowrap"
       >
         Settings
       </button>

@@ -278,11 +278,14 @@ export default function FlightTable({
                       <button
                         onClick={() => saveEdit(f.id)}
                         disabled={saving}
-                        className="text-sky text-xs hover:underline mr-2 disabled:opacity-50"
+                        className="text-xs font-medium bg-dusk text-white rounded-md px-2.5 py-1 hover:bg-sky mr-2 disabled:opacity-50"
                       >
                         {saving ? "Saving…" : "Save"}
                       </button>
-                      <button onClick={cancelEdit} className="text-haze text-xs hover:underline">
+                      <button
+                        onClick={cancelEdit}
+                        className="text-xs font-medium border border-haze/40 text-haze rounded-md px-2.5 py-1 hover:bg-skylight/60"
+                      >
                         Cancel
                       </button>
                       {editError && <p className="text-alert text-xs mt-1">{editError}</p>}
@@ -337,13 +340,13 @@ export default function FlightTable({
                       <>
                         <button
                           onClick={() => startEdit(f)}
-                          className="text-sky text-xs hover:underline mr-3"
+                          className="text-xs font-medium border border-sky text-sky rounded-md px-2.5 py-1 hover:bg-sky/10 mr-2"
                         >
                           Edit
                         </button>
                         <button
                           onClick={() => onDelete(f.id)}
-                          className="text-haze hover:text-alert text-xs"
+                          className="text-xs font-medium border border-alert/40 text-alert rounded-md px-2.5 py-1 hover:bg-alert/10"
                           aria-label={`Delete flight ${f.flight_number}`}
                         >
                           Delete

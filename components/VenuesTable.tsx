@@ -2,7 +2,7 @@
 import { useMemo, useState } from "react";
 import type { Flight } from "@/lib/types";
 
-type SortKey = "flights" | "hours" | "longest" | "average";
+type SortKey = "flights" | "hours" | "longest" | "average" | "elevation";
 
 interface VenueStat {
   site: string;
@@ -10,6 +10,7 @@ interface VenueStat {
   hours: number;
   longestMinutes: number;
   averageMinutes: number;
+  highestElevationM: number | null;
 }
 
 export default function VenuesTable({ flights }: { flights: Flight[] }) {
@@ -17,15 +18,26 @@ export default function VenuesTable({ flights }: { flights: Flight[] }) {
   const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
 
   const venues = useMemo(() => {
-    const siteMap = new Map<string, { flights: number; minutes: number; longest: number }>();
+    const siteMap = new Map<
+      string,
+      { flights: number; minutes: number; longest: number; highestElevation: number | null }
+    >();
     for (const f of flights) {
       if (f.is_aggregate || !f.site) continue;
       const key = f.site.trim();
       if (!key) continue;
-      const entry = siteMap.get(key) || { flights: 0, minutes: 0, longest: 0 };
+      const entry = siteMap.get(key) || {
+        flights: 0,
+        minutes: 0,
+        longest: 0,
+        highestElevation: null,
+      };
       entry.flights += 1;
       entry.minutes += f.duration_minutes;
       entry.longest = Math.max(entry.longest, f.duration_minutes);
+      if (f.max_elevation_m != null) {
+        entry.highestElevation = Math.max(entry.highestElevation ?? 0, Number(f.max_elevation_m));
+      }
       siteMap.set(key, entry);
     }
 
@@ -35,6 +47,7 @@ export default function VenuesTable({ flights }: { flights: Flight[] }) {
       hours: Math.round((v.minutes / 60) * 10) / 10,
       longestMinutes: v.longest,
       averageMinutes: Math.round(v.minutes / v.flights),
+      highestElevationM: v.highestElevation,
     }));
 
     return list.sort((a, b) => {
@@ -49,9 +62,12 @@ export default function VenuesTable({ flights }: { flights: Flight[] }) {
       } else if (sortKey === "longest") {
         av = a.longestMinutes;
         bv = b.longestMinutes;
-      } else {
+      } else if (sortKey === "average") {
         av = a.averageMinutes;
         bv = b.averageMinutes;
+      } else {
+        av = a.highestElevationM ?? 0;
+        bv = b.highestElevationM ?? 0;
       }
       return sortDir === "asc" ? av - bv : bv - av;
     });
@@ -106,6 +122,12 @@ export default function VenuesTable({ flights }: { flights: Flight[] }) {
                 >
                   Average flight {sortKey === "average" && (sortDir === "asc" ? "↑" : "↓")}
                 </th>
+                <th
+                  className="px-3 py-3 font-medium cursor-pointer select-none"
+                  onClick={() => toggleSort("elevation")}
+                >
+                  Highest elevation {sortKey === "elevation" && (sortDir === "asc" ? "↑" : "↓")}
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -122,6 +144,16 @@ export default function VenuesTable({ flights }: { flights: Flight[] }) {
                   </td>
                   <td className="px-3 py-2.5 font-mono tabular-nums whitespace-nowrap">
                     {formatHM(v.averageMinutes)}
+                  </td>
+                  <td className="px-3 py-2.5 font-mono tabular-nums whitespace-nowrap">
+                    {v.highestElevationM != null ? (
+                      <>
+                        {Math.round(v.highestElevationM).toLocaleString()}
+                        <span className="text-xs font-body text-haze ml-1">m</span>
+                      </>
+                    ) : (
+                      "—"
+                    )}
                   </td>
                 </tr>
               ))}
